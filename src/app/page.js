@@ -1,17 +1,17 @@
+"use client";
 import Image from "next/image";
-import { useStore } from "./component/store";
+import { Store } from "./component/store";
 
 export default function Home() {
-  const { count, increase, decrease } = useStore();
+  // ✅ Call the store as a hook
+  const { count, increase, decrease } = Store();
 
   return (
-    <>
-      <div>
-        <h1>Welcome to Next.js!</h1>
-        <p>{count}</p>
-        <button onClick={increase}>Increase</button>
-        <button onClick={decrease}>Decrease</button>
-      </div>
-    </>
+    <div>
+      <h1>Welcome to Next.js!</h1>
+      <p>This is counter: {count}</p>
+      <button onClick={increase}>Increase</button>
+      <button onClick={decrease}>Decrease</button>
+    </div>
   );
 }
