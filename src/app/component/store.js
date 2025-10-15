@@ -56,7 +56,7 @@ export const useStore = create((set) => ({
         category: "Electronics",
         rating: 4.5,
         reviews: 210,
-        image: "https://static-01.daraz.pk/p/2c3d9f81e7c03e4dfc09b01b8b9084a9.jpg",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkzm330_QXVLpQJnT6jKW3ixSYYI9Vka9t6Q&s",
         inStock: true,
     },
     {
@@ -67,7 +67,7 @@ export const useStore = create((set) => ({
         category: "Accessories",
         rating: 4.4,
         reviews: 97,
-        image: "https://static-01.daraz.pk/p/19f1f2d1f7d0d7a5a6f4e0fa27c50dcb.jpg",
+        image: "https://pelikas.pk/cdn/shop/files/DSC08321.jpg?v=1716807355",
         inStock: true,
     },
     {
@@ -78,7 +78,7 @@ export const useStore = create((set) => ({
         category: "Fashion",
         rating: 4.6,
         reviews: 143,
-        image: "https://static-01.daraz.pk/p/9fda2e287b871a5f9d5a7b30e3b59257.jpg",
+        image: "https://dynsol.pk/cdn/shop/files/7_69278d90-2721-4db7-b499-a3cf31af5987.jpg?v=1698224104",
         inStock: true,
     },
     {
@@ -89,7 +89,7 @@ export const useStore = create((set) => ({
         category: "Electronics",
         rating: 4.9,
         reviews: 276,
-        image: "https://www.razer.com/content/dam/razer/global/en/products/gaming-keyboards/razer-blackwidow-v3-mini-hyperspeed/gallery/razer-blackwidow-v3-mini-hyperspeed-gallery-1500x1000-1.jpg",
+        image: "https://pakistanstore.pk/wp-content/uploads/2024/12/Xtrike-Me-GK-989-Gaming-Keyboard.jpg",
         inStock: true,
     },
     {
@@ -100,7 +100,7 @@ export const useStore = create((set) => ({
         category: "Fashion",
         rating: 4.2,
         reviews: 68,
-        image: "https://static-01.daraz.pk/p/bd6b2ef45d5439cb2284d25911c256fa.jpg",
+        image: "https://m.media-amazon.com/images/I/21234RKjK2L._SY1000_.jpg",
         inStock: true,
     },
     {
@@ -111,12 +111,10 @@ export const useStore = create((set) => ({
         category: "Electronics",
         rating: 4.3,
         reviews: 156,
-        image: "https://static-01.daraz.pk/p/3ef90734a0a58479b7c5e8d31f4ef4b2.jpg",
+        image: "https://appleman.pk/cdn/shop/files/acefast-e19-qi2-desktop-3in1-wireless-charging-holder-stand.jpg?v=1725087505&width=1445",
         inStock: false,
     },
 ],
-
-
     setProducts: (newProducts) => set({ products: newProducts }),
 
 }));
