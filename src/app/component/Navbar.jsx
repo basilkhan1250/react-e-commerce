@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [search, setSearch] = useState("");
     const router = useRouter();
+    const dropdownRef = useRef(null);
 
     const categories = [
         "Fashion",
@@ -18,13 +19,23 @@ const Navbar = () => {
         "Gaming",
     ];
 
-    // Navigation helper
+    // Close dropdown if clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
     const goTo = (path) => {
         router.push(path);
         setIsOpen(false); // close dropdown when navigating
     };
 
-    // Handle search
     const handleSearch = (e) => {
         e.preventDefault();
         if (search.trim()) {
@@ -45,34 +56,22 @@ const Navbar = () => {
                         🛍️ E-Shop
                     </h1>
 
-                    <ul className="hidden md:flex space-x-6 text-sm font-medium">
-                        <li
-                            className="cursor-pointer hover:text-gray-200 "
-                            onClick={() => goTo("/")}
-                        >
+                    <ul className="hidden md:flex space-x-6 text-sm font-medium items-center">
+                        <li className="cursor-pointer hover:text-gray-200" onClick={() => goTo("/")}>
                             Home
                         </li>
-                        <li
-                            className="cursor-pointer hover:text-gray-200"
-                            onClick={() => goTo("/about")}
-                        >
+                        <li className="cursor-pointer hover:text-gray-200" onClick={() => goTo("/about")}>
                             About
                         </li>
-                        <li
-                            className="cursor-pointer hover:text-gray-200"
-                            onClick={() => goTo("/contact")}
-                        >
+                        <li className="cursor-pointer hover:text-gray-200" onClick={() => goTo("/contact")}>
                             Contact
                         </li>
-                        <li
-                            className="cursor-pointer hover:text-gray-200"
-                            onClick={() => goTo("/products")}
-                        >
+                        <li className="cursor-pointer hover:text-gray-200" onClick={() => goTo("/products")}>
                             Products
                         </li>
 
-                        {/* Dropdown */}
-                        <div className="relative">
+                        {/* Categories Dropdown */}
+                        <div className="relative" ref={dropdownRef}>
                             <li
                                 onClick={() => setIsOpen(!isOpen)}
                                 className="cursor-pointer hover:text-gray-200 select-none"
@@ -85,7 +84,7 @@ const Navbar = () => {
                                     {categories.map((cat, index) => (
                                         <li
                                             key={index}
-                                            onClick={() => router.push(`/categories/${cat.toLowerCase()}`)}
+                                            onClick={() => goTo(`/categories/${cat.toLowerCase()}`)}
                                             className="px-4 py-2 hover:bg-blue-100 cursor-pointer"
                                         >
                                             {cat}

@@ -5,9 +5,12 @@ import { useParams } from "next/navigation";
 
 const CategoryPage = () => {
     const params = useParams();
+    console.log("Params:", params);
     const category = params.category;
+    console.log("Category:", category);
 
     const store = useStore();
+    console.log("Store:", store);
     const products = Array.isArray(store[category]) ? store[category] : [];
     console.log("Products:", products);
 
