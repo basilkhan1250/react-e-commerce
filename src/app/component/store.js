@@ -3,7 +3,7 @@ import { create } from "zustand";
 
 export const useStore = create((set) => ({
 
-    gamingProcucts: [
+    gaming: [
         {
             id: 1,
             name: "Gaming Laptop",
@@ -126,7 +126,7 @@ export const useStore = create((set) => ({
         },
     ],
 
-    toysProducts: [
+    toys: [
         {
             id: 1,
             name: "Building Blocks Set",
@@ -249,7 +249,7 @@ export const useStore = create((set) => ({
         },
     ],
 
-    sportsProducts: [
+    sports: [
         {
             id: 1,
             name: "Yoga Mat",
@@ -372,7 +372,7 @@ export const useStore = create((set) => ({
         },
     ],
 
-    beautyProducts: [
+    beauty: [
         {
             id: 1,
             name: "Matte Lipstick",
@@ -495,7 +495,7 @@ export const useStore = create((set) => ({
         },
     ],
 
-    homeAndKitchenProducts: [
+    homeAndKitchen: [
         {
             id: 1,
             name: "Ceramic Dinner Set",
@@ -618,7 +618,7 @@ export const useStore = create((set) => ({
         },
     ],
 
-    electronicsProducts: [
+    electronics: [
         {
             id: 1,
             name: "Wireless Headphones",
@@ -741,7 +741,7 @@ export const useStore = create((set) => ({
         },
     ],
 
-    accessoriesProducts: [
+    accessories: [
         {
             id: 1,
             name: "Gold Chain Necklace",
@@ -864,7 +864,7 @@ export const useStore = create((set) => ({
         },
     ],
 
-    fashionProducts: [
+    fashion: [
         {
             id: 1,
             name: "Classic White T-Shirt",
