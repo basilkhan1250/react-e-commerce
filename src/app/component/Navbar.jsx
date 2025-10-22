@@ -15,6 +15,7 @@ const Navbar = () => {
     "Beauty",
     "Sports",
     "Toys",
+    "Gaming",
   ];
 
   // Navigation function
