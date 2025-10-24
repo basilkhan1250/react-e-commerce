@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useStore } from "../../component/store";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 const CategoryPage = () => {
     const params = useParams();
@@ -13,6 +13,13 @@ const CategoryPage = () => {
     console.log("Store:", store);
     const products = Array.isArray(store[category]) ? store[category] : [];
     console.log("Products:", products);
+
+    const router = useRouter();
+
+    const goTo = (path) => {
+        router.push(path);
+    };
+
 
     return (
         <>
@@ -59,6 +66,12 @@ const CategoryPage = () => {
                         </button>
                     </div>
                 ))}
+                <button
+                    onClick={() => goTo("/cart")}
+                    className="fixed bottom-5 right-5 cursor-pointer px-4 py-2 bg-black text-white rounded-lg z-50"
+                >
+                    Cart
+                </button>
             </div>
         </>
     );
