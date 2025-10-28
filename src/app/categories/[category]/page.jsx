@@ -62,7 +62,7 @@ const CategoryPage = () => {
             whileHover={{ scale: 1.03 }}
             className="border rounded-lg p-4 shadow hover:shadow-xl transition duration-300 flex flex-col justify-between bg-white"
           >
-            <div className="w-full h-64 mb-3 overflow-hidden rounded-md">
+            <div className="w-full h-90 mb-3 overflow-hidden rounded-md">
               <motion.img
                 src={product.image}
                 alt={product.name}
