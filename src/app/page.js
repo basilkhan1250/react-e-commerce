@@ -2,9 +2,14 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import addProductToDB from "./component/db";
+
+
+
 
 export default function Home() {
   const router = useRouter();
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 overflow-hidden">
@@ -40,6 +45,8 @@ export default function Home() {
       >
         Shop Now 🛒
       </motion.button>
+      <button onClick={addProductToDB}>Upload All Products</button>
+
     </div>
   );
 }
