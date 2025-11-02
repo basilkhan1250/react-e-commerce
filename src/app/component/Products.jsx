@@ -2,11 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useStore } from "../component/store";
+// import { useStore } from "../component/store";
 import { useRouter } from "next/navigation";
+import useFetchProducts from "../database/fetchdata";
 
 const Products = () => {
-  const { products } = useStore();
+  const { categories, loading } = useFetchProducts();
+  console.log(categories);
   const router = useRouter();
 
   const goTo = (path) => {
@@ -38,7 +40,7 @@ const Products = () => {
         animate="show"
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"
       >
-        {products.map((product) => (
+        {categories.map((product) => (
           <motion.div
             key={product.id}
             variants={cardVariants}
@@ -63,9 +65,8 @@ const Products = () => {
                 Rating: {product.rating} ({product.reviews} reviews)
               </p>
               <p
-                className={`mt-1 ${
-                  product.inStock ? "text-green-600" : "text-red-600"
-                }`}
+                className={`mt-1 ${product.inStock ? "text-green-600" : "text-red-600"
+                  }`}
               >
                 {product.inStock ? "In Stock" : "Out of Stock"}
               </p>
@@ -74,11 +75,10 @@ const Products = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`w-full py-2 mt-3 rounded text-white transition duration-300 ${
-                product.inStock
-                  ? "bg-blue-600 hover:bg-blue-700"
-                  : "bg-gray-400 cursor-not-allowed"
-              }`}
+              className={`w-full py-2 mt-3 rounded text-white transition duration-300 ${product.inStock
+                ? "bg-blue-600 hover:bg-blue-700"
+                : "bg-gray-400 cursor-not-allowed"
+                }`}
               disabled={!product.inStock}
             >
               Add to Cart

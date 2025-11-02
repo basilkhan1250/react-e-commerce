@@ -1,7 +1,7 @@
 "use client";
 import { db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
-import { useStore } from "./store";
+// import { useStore } from "../component/store";
 
 const addProductToDB = async () => {
   const {

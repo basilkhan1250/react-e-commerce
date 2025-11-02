@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import addProductToDB from "./component/db";
+import addProductToDB from "./database/db";
 
 
 
