@@ -41,11 +41,11 @@ export default function Home() {
         animate={{ opacity: 1, scale: 1 }}        // grow into view
         transition={{ duration: 0.6, delay: 0.6 }}
         onClick={() => router.push("/products")}
-        className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition"
+        className="px-6 py-3 bg-blue-600 text-white cursor-pointer rounded-lg shadow-lg hover:bg-blue-700 transition"
       >
         Shop Now 🛒
       </motion.button>
-      <button onClick={addProductToDB}>Upload All Products</button>
+      {/* <button onClick={addProductToDB}>Upload All Products</button> */}
 
     </div>
   );

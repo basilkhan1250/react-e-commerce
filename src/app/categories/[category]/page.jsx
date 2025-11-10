@@ -1,17 +1,19 @@
 "use client";
 
 import React from "react";
-import { useStore } from "../../component/store";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import useFetchProducts from "../../database/fetchdata";
+
 
 const CategoryPage = () => {
   const params = useParams();
   const category = params.category;
-  const store = useStore();
-  const router = useRouter();
+  const products = useFetchProducts(category);
+  const { categories } = useFetchProducts();
 
-  const products = Array.isArray(store[category]) ? store[category] : [];
+  console.log(products);
+  const router = useRouter();
 
   const goTo = (path) => {
     router.push(path);
@@ -55,7 +57,7 @@ const CategoryPage = () => {
         initial="hidden"
         animate="visible"
       >
-        {products.map((product) => (
+        {categories.map((product) => (
           <motion.div
             key={product.id}
             variants={item}
@@ -80,9 +82,8 @@ const CategoryPage = () => {
                 Rating: {product.rating} ({product.reviews} reviews)
               </p>
               <p
-                className={`mt-1 ${
-                  product.inStock ? "text-green-600" : "text-red-600"
-                }`}
+                className={`mt-1 ${product.inStock ? "text-green-600" : "text-red-600"
+                  }`}
               >
                 {product.inStock ? "In Stock" : "Out of Stock"}
               </p>
